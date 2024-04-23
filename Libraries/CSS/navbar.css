@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-nav{
+    overflow:hidden ;
+    background:#F57C00;
+    width: 100%;
+}
+.contenedor-nav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.contenedor-nav a:hover{
+    background-color:  #0D47A1;
+    color: black;
+}
