@@ -5,13 +5,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Nombres = $_POST['nombres'];
     $Apellidos = $_POST['apellidos'];
     $Correo = $_POST['correo'];
-    $Semestre = $_POST['semestre'];
-    $Carrera = $_POST['carrera'];
+    $Usuario = $_POST['username'];
+    $Contraseña = $_POST['password'];
 
     
     
-    if($Nombres != "" && $Apellidos != "" && $Correo != "" && $Semestre != "" && $Carrera) {
-        $sql_insert = "INSERT INTO Alumnos (Nombres, Apellidos, Correo , Semestre , Carrera) VALUES ('$Nombres', '$Apellidos', '$Correo' ,'$Semestre' ,'$Carrera')";
+    if($Nombres != "" && $Apellidos != "" && $Correo != "" && $Usuario != "" && $Contraseña) {
+        $sql_insert = "INSERT INTO usuarios (Nombres, Apellidos, Correo , username , password) VALUES ('$Nombres', '$Apellidos', '$Correo' ,'$Usuario' ,'$Contraseña')";
         $result_insert = mysqli_query($conexion, $sql_insert);
         
         if ($result_insert) {
