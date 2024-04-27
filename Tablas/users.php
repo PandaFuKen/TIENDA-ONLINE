@@ -6,11 +6,7 @@ $sql = "SELECT*FROM usuarios";
 $result = mysqli_query($conexion,$sql);
 ?>
 
-<nav class="regresar">
- <button>
-    <a href="../Maestros/formsMaestro.php">Regresar</a>
- </button>
-</nav>
+
 
 <div class="contenedor-tabla">
     <table>
@@ -35,8 +31,8 @@ $result = mysqli_query($conexion,$sql);
                 <td><?php echo $fila['username']?></td>
                 <td><?php echo $fila['password']?></td>
                 <td>
-                    <a href="../Alumnos/editarAlumnos.php?id_alumno=<?php echo $fila ['id_alumno']?>"><img src="../IMG/editar.png" alt="" class="editar"></a>
-                    <a href="../Alumnos/eliminarAlumnos.php?id_alumno=<?php echo $fila ['id_alumno']?>"><img src="../IMG/eliminar.png" alt="" class="eliminar"></a>
+                    <a href="../Controllers/editarusers.php?id_usuario=<?php echo $fila ['id_usuario']?>"><img src="../Libraries/IMG/editar.png" alt="" class="editar"></a>
+                    <a href="../Controllers/eliminaruser.php?id_usuario=<?php echo $fila ['id_usuario']?>"><img src="../Libraries/IMG/eliminar.png" alt="" class="eliminar"></a>
                 </td>
                 </tr>
           <?php }?>

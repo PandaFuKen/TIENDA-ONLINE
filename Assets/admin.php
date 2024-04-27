@@ -1,68 +1,35 @@
 <link rel="stylesheet" href="../Libraries/CSS/admin.css">
 
+
 <script src="../Config/login.js"></script>
 <?php
 session_start();
-if (isset($_SESSION['cargo']) == 'Administrador') {
+if (isset($_SESSION['rol']) == 'Administrador') {
 ?>
-<div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="logo-apple"></ion-icon>
-                        </span>
-                        <span class="title"></span>
-                    </a>
-                </li>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Perfil')" id="defaultOpen">Perfil</button>
+  <button class="tablinks" onclick="openCity(event, 'Cliente')">Cliente</button>
+  <button class="tablinks" onclick="openCity(event, 'Producto')">Producto</button>
+  <a href="../Assets/exit.php"><button class="tablinks">Cerrar sesion</button></a>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Perfil</span>
-                    </a>
-                </li>
+</div>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </span>
-                        <span class="title" >Cliente</span>
-                    </a>
-                </li>
+<div id="Perfil" class="tabcontent">
+  
+</div>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                        </span>
-                        <span class="title">Categoria</span>
-                    </a>
-                </li>
+<div id="Cliente" class="tabcontent">
+  <?php include ("../Tablas/users.php");?>
+</div>
 
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
-                        </span>
-                        <span class="title">Productos</span>
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="../Assets/exit.php">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+<div id="Producto" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+        
+<script src="../Config/admin.js"></script>
+        
 
 <?php }
 else{

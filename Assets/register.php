@@ -1,17 +1,16 @@
 <?php 
 include ("../php/conexion.php");
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Nombres = $_POST['nombres'];
     $Apellidos = $_POST['apellidos'];
     $Correo = $_POST['correo'];
-    $Usuario = $_POST['username'];
-    $Contraseña = $_POST['password'];
+    $Username = $_POST['username'];
+    $Password= $_POST['password'];
 
     
     
-    if($Nombres != "" && $Apellidos != "" && $Correo != "" && $Usuario != "" && $Contraseña) {
-        $sql_insert = "INSERT INTO usuarios (Nombres, Apellidos, Correo , username , password) VALUES ('$Nombres', '$Apellidos', '$Correo' ,'$Usuario' ,'$Contraseña')";
+    if($Nombres != "" && $Apellidos != "" && $Correo != "" && $Username != "" && $Password) {
+        $sql_insert = "INSERT INTO usuarios (Nombres, Apellidos, Correo , username , password,rol) VALUES ('$Nombres', '$Apellidos', '$Correo' ,'$Username' ,'$Password',2)";
         $result_insert = mysqli_query($conexion, $sql_insert);
         
         if ($result_insert) {
@@ -27,28 +26,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
-
-
-
-
-
-
-
 <link rel="stylesheet" href="../Libraries/CSS/registros.css">
 
-<form action="" class="box" method="post">
-        <h1>Registrate</h1>
-        <label for="" class="ingreso">Ingresa tus nombres</label>
-        <input type="text" name="nombres" placeholder="">
-        <label for="" class="Ingreso">Ingresa tus apellidos</label>
-        <input type="text" name="apellidos" placeholder="">
-        <label for="" class="Ingreso">Ingresa tu correo</label>
-        <input type="text" name="correo" placeholder="">
-        <label for="" class="Ingreso">Ingresa un nombre de usuario</label>
-        <input type="text" name="username" placeholder="">
-        <label for="" class="Ingreso">Ingresa una contraseña</label>
-        <input type="password" name="password" placeholder="">
-        <input type="submit" name="" value="Registrate">
+<div class="contenedor-sticky">
+    <form method="post" class="box">
+        <h1 class="Inicio">Registro</h1>
+         <label for="">Ingresa tus nombres :</label>
+        <input type="text" name="nombres" class="Ingreso">
+        <label for="">Ingresa tus apelidos</label>
+        <input type="text" name="apellidos" placeholder="Apellidos" class="Ingreso">
+        <label for="">Ingresa tu correo</label>
+        <input type="text" name="correo" placeholder="Correo" class="Ingreso">
+         <label for="">Ingresa un nombre usuario</label>
+        <input type="text" name="username" placeholder="username" class="Ingreso">
+        <label for="">ingresa una contraseña</label>
+        <input type="text" name="password" placeholder="password" class="Ingreso">    
+        <input type="submit" value="Agregar" id="registrar">
     </form>
+</div>
+
+

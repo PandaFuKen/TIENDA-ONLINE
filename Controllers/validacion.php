@@ -1,34 +1,47 @@
 <?php
+session_start(); // Inicia la sesión al principio del script
 
-if(isset($_POST["login"])){ // Botón para validar el método login
-    if(strlen($_POST["usuarios"]) >= 1 && strlen($_POST['pass']) >= 1){ // Valida el usuario y la contraseña
+if(isset($_POST["login"])){ 
+    if(strlen($_POST["usuarios"]) >= 1 && strlen($_POST['pass']) >= 1){ 
         $NombreUsuario = $_POST["usuarios"];
         $Contra = $_POST["pass"];
 
         $conexion = mysqli_connect("localhost", "root", "", "chedraui");
+        
+        // Verifica si hay errores en la conexión
+        if (!$conexion) {
+            die("Error de conexión: " . mysqli_connect_error());
+        }
+
         $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE username='$NombreUsuario' AND password='$Contra'");
+        
+        // Verifica si hay errores en la consulta
+        if (!$consulta) {
+            die("Error en la consulta: " . mysqli_error($conexion));
+        }
+
         $detalles = mysqli_fetch_array($consulta);
         
         if($detalles){
-          session_start();
-          $_SESSION['usuario'] = $detalles['username'];
-          $_SESSION['cargo'] = $detalles['cargo'];
+            $_SESSION['usuario'] = $detalles['username'];
+            $_SESSION['rol'] = $detalles['rol'];
 
-         if($_SESSION['cargo'] == 'Administrador'){ 
-          header("Location: ../Assets/admin.php");
-         }
-         if($_SESSION['cargo'] == 'Cliente'){
-          echo 'Este es un cliente ';
-         }
-      
+            if($_SESSION['rol'] == '1'){ 
+              
+              header("Location:../Assets/admin.php");
+
+              
+            }
+            elseif($_SESSION['rol'] == '2'){
+                header("Location: ../Helpers/cliente.php");
+            }
         }
         else{
-          echo"usuario no existe";
+            echo "Usuario o contraseña incorrectos";
         }
-      
     }
     else{
-      echo"COMPLETA LOS CAMPOS";
+        echo "Completa todos los campos";
     }
 }
 ?>
