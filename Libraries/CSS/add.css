@@ -1,0 +1,56 @@
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.contenedor-tabla {
+  
+   width: 100%; /* Ajustado el ancho para ocupar más espacio en la página */
+    background-color: antiquewhite;
+     /* Añadido margen superior para separar la tabla del formulario */
+    border-radius: 10px; /* Añadido borde redondeado */
+    padding: 10px; /* Añadido espacio interno */
+
+
+}
+
+table {
+    width: 100%; /* La tabla ocupará todo el ancho del contenedor */
+    border-collapse: collapse; /* Borde de la tabla colapsado */
+}
+
+th, td {
+    border: 1px solid red; /* Borde de las celdas */
+    padding: 8px; /* Añadido espacio interno */
+    text-align: center; /* Alineación del texto a la izquierda */
+}
+
+th {
+    text-align: center;
+    background-color: #f2f2f2; /* Color de fondo para las cabeceras */
+}
+
+.editar{
+    width: 30px;
+}
+
+.eliminar{
+    width: 30px;
+}
+
+
+.regresar{
+    width: 100%;
+    background-color: #0D47A1;
+    position: sticky;
+    top: 0;
+}
