@@ -24,8 +24,8 @@ if (isset($_SESSION['rol']) == 'Administrador') {
 </div>
 
 <div id="Categoria" class="tabcontent">
-  <button onclick="document.getElementById('id01').style.display='block'"  class="registro-boton">Sign Up</button>
-  
+<button  class="registro-boton" ><a href="../Helpers/categoriass.php" class="ingreso">Agregar</a></button>
+<h1 class="seccion">Categoria</h1>
   <?php include ("../Tablas/categorias.php");?>
 </div>
 

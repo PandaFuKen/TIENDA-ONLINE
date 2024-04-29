@@ -13,7 +13,7 @@ body{
 
 
 .contenedor-tabla {
-  
+  margin-top: 30px;
    width: 100%; /* Ajustado el ancho para ocupar más espacio en la página */
     background-color: antiquewhite;
      /* Añadido margen superior para separar la tabla del formulario */
