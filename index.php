@@ -8,6 +8,12 @@
 <body>
 
 <?php include ("./Views/navbar.php");?>
+
+
+<?php include ("./Views/vistacategoria.php");?>
+
+
+
     
 
 <h1>Bienvenido a chedraui</h1>

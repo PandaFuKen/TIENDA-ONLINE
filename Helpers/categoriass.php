@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if ($result_insert) {
             // Redireccionar al usuario a la misma página después de procesar el formulario
-            header("Location: {$_SERVER['REQUEST_URI']}");
+            header("Location: ../Assets/admin.php");
             exit();
         } else {
             echo "Error al agregar usuario: " . mysqli_error($conexion);
@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1 class="Inicio">Ingresa la categoria</h1>
          <label for="">Nombre de la categoria:</label>
         <input type="text" name="nombre" class="Ingreso">
+         <label for="">Ingres una foto de producto</label>
+         <input type="text" name="">
         <input type="submit" value="Agregar" id="registrar">
     </form>
 </div>

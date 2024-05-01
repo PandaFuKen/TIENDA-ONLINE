@@ -1,0 +1,43 @@
+.contenedor-categorias {
+  margin-top: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start; /* Alinear los elementos al inicio */
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  margin-bottom: 20px; /* Agregar un espacio entre las filas */
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #F57C00;
+  margin-right: 20px; /* Agregar un espacio entre los círculos */
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease-in-out; /* Animación de transición */
+}
+
+.circle p {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.3s ease-in-out; /* Animación de transición */
+  opacity: 0; /* Inicialmente oculto */
+}
+
+.circle:hover {
+  transform: scale(1.2); /* Hace el círculo más grande al pasar el cursor sobre él */
+}
+
+.circle:hover p {
+  opacity: 1; /* Muestra el nombre al pasar el cursor sobre el círculo */
+}
