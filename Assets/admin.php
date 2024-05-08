@@ -30,7 +30,10 @@ if (isset($_SESSION['rol']) == 'Administrador') {
 </div>
 
 <div id="Producto" class="tabcontent">
-  <h3>Productos</h3>
+  
+<button  class="registro-boton" ><a href="../Helpers/products.php" class="ingreso">Agregar</a></button>
+<h1 class="seccion">Productos</h1>
+  <?php include ("../Tablas/productos.php");?>
   
   
 </div>

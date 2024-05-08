@@ -5,9 +5,9 @@ include("../php/conexion.php");
 require $_SERVER['DOCUMENT_ROOT'].'/PHP/conexion.php'; 
 
 // Usar solo PDO para la conexión
-$db = Database::connect();
+
 $categorias = $db->query('SELECT `id_categoria`, `nombre` FROM `categorias` ORDER BY name ASC');
-$items = $db->query('SELECT items.id, items.name, items.description, items.price, items.image,items.opciones,items.extras, categorias.name AS category FROM items LEFT JOIN categorias ON items.category = categorias.id ORDER BY items.id DESC');
+$items = $db->query('SELECT id_cateo.id, items.name, items.description, items.price, items.image,items.opciones,items.extras, categorias.name AS category FROM items LEFT JOIN categorias ON items.category = categorias.id ORDER BY items.id DESC');
 
 ?>
 

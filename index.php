@@ -10,9 +10,6 @@
 <?php include ("./Views/navbar.php");?>
 
 
-<?php include ("./Views/vistacategoria.php");?>
-
-
 
     
 
