@@ -1,10 +1,8 @@
 <?php
-// Verificar si no hay una sesión activa
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// Al principio del script, inicia la sesión
+session_start();
 
-include("../php/conexion.php");
+require_once "../PHP/conexion.php";
 include("../Controllers/validacion.php");
 
 // Obtener categorías desde la base de datos
@@ -13,36 +11,36 @@ $result_categorias = mysqli_query($conexion, $sql_categorias);
 $categorias = mysqli_fetch_all($result_categorias, MYSQLI_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if user is logged in
+    // Verificar si el usuario está autenticado
     if(isset($_SESSION['id_usuario'])) {
-        // Check if user is an administrator
-        if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'administrador') {
+        // Verificar si el usuario es un administrador
+        if(isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
             $id_usuario = $_SESSION['id_usuario'];  
 
-            // Retrieve form data
+            // Recuperar datos del formulario
             $nombre = $_POST['nombre_producto'];
             $precio = $_POST['precio'];
             $descripcion = $_POST['descripcion'];
             $stock = $_POST['stock'];
             $categoria_id = $_POST['categoria'];
 
-            // Handling photo upload
+            // Manejo de la foto
             $Foto = $_FILES['foto_producto']['name'];
             $Foto_temp = $_FILES['foto_producto']['tmp_name'];
             $ruta = "../Libraries/IMG/";
 
-            // Move the photo from the temporary location to the final location
+            // Mueve la foto de la ruta temporal a la ruta definitiva
             move_uploaded_file($Foto_temp, $ruta.$Foto);
 
-            // Validate form data
+            // Validar datos del formulario
             if($nombre != "" && $precio != "" && $descripcion != "" && $stock != "" && $categoria_id != "" && $Foto != "") {
-                // Insert the product into the database
+                // Insertar el producto en la base de datos
                 $sql_insert = "INSERT INTO pr (nombre_producto, precio, descripcion, stock, foto_producto, id_categoria, id_usuario) 
                                 VALUES ('$nombre', '$precio', '$descripcion', '$stock', '$Foto', '$categoria_id', '$id_usuario')";
                 $result_insert = mysqli_query($conexion, $sql_insert);
 
                 if ($result_insert) {
-                    // Redirect the user to a success page or display a success message
+                    // Redirigir al usuario a una página de éxito o mostrar un mensaje de éxito
                     header("Location:../Assets/admin.php");
                     exit();
                 } else {

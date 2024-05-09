@@ -4,7 +4,7 @@
 <script src="../Config/login.js"></script>
 <?php
 session_start();
-if (isset($_SESSION['rol']) == 'Administrador') {
+if (isset($_SESSION['rol']) == '1') {
 ?>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Perfil')" id="defaultOpen">Perfil</button>
