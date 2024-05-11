@@ -5,12 +5,6 @@ include("../php/conexion.php");
 $sql = "SELECT*FROM categoria";
 $result = mysqli_query($conexion,$sql);
 ?>
-
-
-
-
-
-
 <div class="cuerpo">
 
 <div class="contenedor-tabla">

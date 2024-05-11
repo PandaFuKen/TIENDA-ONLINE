@@ -6,7 +6,7 @@ if(isset($_POST["login"])){
         $NombreUsuario = $_POST["usuarios"];
         $Contra = $_POST["pass"];
 
-        $conexion = mysqli_connect("localhost", "root", "", "chedraui");
+        $conexion = mysqli_connect("localhost", "admin", "9683", "chedraui");
         
         // Verifica si hay errores en la conexión
         if (!$conexion) {
@@ -24,6 +24,7 @@ if(isset($_POST["login"])){
         
         if($detalles){
             $_SESSION['usuario'] = $detalles['username'];
+            $_SESSION['id_usuario'] = $detalles['rol'];
             $_SESSION['rol'] = $detalles['rol'];
 
             if($_SESSION['rol'] == '1'){ 

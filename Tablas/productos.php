@@ -1,13 +1,11 @@
 <link rel="stylesheet" href="../Libraries/CSS/tablas.css">
 
 <?php 
-include("../PHP/conexion.php");
+include("../php/conexion.php");
 $sql = "SELECT*FROM pr";
 $result = mysqli_query($conexion,$sql);
 
 ?>
-
-
 <div class="contenedor-tabla">
     <table>
         <thead>
@@ -18,20 +16,21 @@ $result = mysqli_query($conexion,$sql);
                 <th>Precio</th>
                 <th>Descripcion</th>
                 <th>Stock</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
         <?php while($fila = mysqli_fetch_array($result)) {?>
            <tr>
             <td><?php echo $fila['id_producto']?></td>
-            <td><?php echo $fila['foto_producto']?></td>
+            <td><img src="../Libraries/IMG/<?php echo $fila['foto_producto']; ?>" alt="" class="editar"></td>
             <td><?php echo $fila['nombre_producto']?></td>
             <td><?php echo $fila['precio']?></td>
             <td><?php echo $fila['descripcion']?></td>
             <td><?php echo $fila['stock']?></td>
             <td>
-                <a href="../Controllers/editarproducto.php?id_producto=<?php echo $fila ['id_producto']?>"><img src="../Libraries/IMG/editar.png" alt=""></a>
-                <a href="../Controllers/editarproducto.php?id_producto=<?php echo $fila ['id_producto']?>"><img src="../Libraries/IMG/eliminar.png" alt=""></a>
+                <a href="../Controllers/editarproducto.php?id_producto=<?php echo $fila ['id_producto']?>"><img src="../Libraries/IMG/editar.png" alt="" class="editar"></a>
+                <a href="../Controllers/elimnarcategoria.php?id_categoria=<?php echo $fila ['id_categoria']?>"><img src="../Libraries/IMG/eliminar.png" alt="" class="eliminar"></a>
             </td>
            </tr>
  

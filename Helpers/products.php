@@ -1,10 +1,10 @@
 <?php
+
 // Al principio del script, inicia la sesión
-session_start();
+//session_start();
 
 require_once "../PHP/conexion.php";
 include("../Controllers/validacion.php");
-
 // Obtener categorías desde la base de datos
 $sql_categorias = "SELECT id_categoria, nombre FROM categoria";
 $result_categorias = mysqli_query($conexion, $sql_categorias);
@@ -12,10 +12,11 @@ $categorias = mysqli_fetch_all($result_categorias, MYSQLI_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si el usuario está autenticado
+
     if(isset($_SESSION['id_usuario'])) {
         // Verificar si el usuario es un administrador
         if(isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-            $id_usuario = $_SESSION['id_usuario'];  
+            $id_usuario = $_SESSION['id_usuario'];
 
             // Recuperar datos del formulario
             $nombre = $_POST['nombre_producto'];
@@ -35,8 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Validar datos del formulario
             if($nombre != "" && $precio != "" && $descripcion != "" && $stock != "" && $categoria_id != "" && $Foto != "") {
                 // Insertar el producto en la base de datos
-                $sql_insert = "INSERT INTO pr (nombre_producto, precio, descripcion, stock, foto_producto, id_categoria, id_usuario) 
-                                VALUES ('$nombre', '$precio', '$descripcion', '$stock', '$Foto', '$categoria_id', '$id_usuario')";
+                $sql_insert = "INSERT INTO pr (nombre_producto, descripcion, precio, stock, foto_producto, id_categoria, id_usuario) 
+                                VALUES ('$nombre', '$descripcion', '$precio', '$stock', '$Foto', '$categoria_id', '$id_usuario')";
                 $result_insert = mysqli_query($conexion, $sql_insert);
 
                 if ($result_insert) {
