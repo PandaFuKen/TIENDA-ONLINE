@@ -12,5 +12,7 @@
 
 <h1>Bienvenido a chedraui</h1>
 
+<div class="containerAnuncios"></div>
+
 <?php include ("./Views/vistacategoria.php");?>
 </html>

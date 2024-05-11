@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../Libraries/CSS/categoria.css">
+<link rel="stylesheet" href="./Libraries/CSS/categoria.css">
 
 <?php
 include("./PHP/conexion.php");
@@ -8,17 +8,16 @@ include("./PHP/conexion.php");
 
 $query = "SELECT * FROM categoria";
 $resultado = $conexion->query($query);
-
 ?>
 
 <div class="contenedor-categorias">
   <h2>Todas las categorías:</h2>
   <div class="flex-container">
-    <?php if ($resultado) { 
-      while ($resultado = $resultado->fetch_assoc()) {?>
+    <?php if ($resultado) {
+      while ($fila = $resultado->fetch_assoc()) {?>
       <div class="circle">
         <!-- Mostrar la información de la categoría -->
-        <a href="#"><p><?php echo $resultado['nombre']; ?></p></a>
+        <a href="#"><p><?php echo $fila['nombre']; ?></p></a>
       </div>
     <?php } }?>
   </div>
