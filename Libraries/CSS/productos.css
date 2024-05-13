@@ -1,6 +1,7 @@
 .content-flex{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card{
@@ -38,5 +39,6 @@
 }
 
 img{
+    max-width: 800px;
     width: 40%;
 }
