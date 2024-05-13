@@ -1,17 +1,27 @@
 <link rel="stylesheet" href="../Libraries/CSS/productos.css">
 <?php 
-include("./PHP/conexion.php");
+include("../PHP/conexion.php");
 
 $query = "SELECT * FROM pr";
 $resultado = $conexion->query($query);
 ?>
 <div class="content-flex">
-<div class="card">
-  <img src="../Libraries/IMG/Autos.jpg" alt="Denim Jeans" style="">
-  <h1>Tailored Jeans</h1>
-  <p class="price">$19.99</p>
-  <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-  <p><button>Add to Cart</button></p>
+  <?php 
+  if ($resultado && $resultado->num_rows > 0) {
+    while ($fila = $resultado->fetch_assoc()) {
+  ?>
+      <div class="card">
+        <img src="../Libraries/IMG/<?php echo $fila['foto_producto'];?>" alt="<?php echo $fila['nombre_producto']; ?>">
+        <h1><?php echo $fila['nombre_producto']; ?></h1>
+        <p class="price">$<?php echo $fila['precio']; ?></p>
+        <p><?php echo $fila['descripcion']; ?></p>
+        <p>Stock : <?php echo $fila['stock']?></p>
+        <p><button>Add to Cart</button></p>
+      </div>
+  <?php 
+    }
+  } else {
+      echo "No se encontraron productos.";
+  }
+  ?>
 </div>
-</div>
-

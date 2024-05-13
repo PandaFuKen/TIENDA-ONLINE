@@ -15,4 +15,5 @@
 <div class="containerAnuncios"></div>
 
 <?php include ("./Views/vistacategoria.php");?>
+
 </html>
