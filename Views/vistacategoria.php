@@ -16,6 +16,7 @@ $resultado = $conexion->query($query);
     <?php if ($resultado) {
       while ($fila = $resultado->fetch_assoc()) {?>
       <div class="circle">
+      <img src="../Libraries/IMG/<?php echo $fila['foto_categoria']; ?>" alt="" class="editar">
         <!-- Mostrar la información de la categoría -->
         <a href="#"><p><?php echo $fila['nombre']; ?></p></a>
       </div>

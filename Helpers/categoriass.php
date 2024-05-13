@@ -1,23 +1,48 @@
-<?php 
-include ("../php/conexion.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Categorias = $_POST['nombre'];
+<?php
+// Incluir el archivo de conexión a la base de datos
+include("../php/conexion.php");
 
- 
+// Verificar si se ha enviado el formulario por el método POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener el nombre de la categoría
+    $categoria = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     
-    if($Categorias != "" ) {
-        $sql_insert = "INSERT INTO categoria (nombre) VALUES ('$Categorias')";
-        $result_insert = mysqli_query($conexion, $sql_insert);
+    // Verificar si se ha subido una imagen
+    if (isset($_FILES['foto_categoria']) && $_FILES['foto_categoria']['error'] === UPLOAD_ERR_OK) {
+        // Directorio de almacenamiento de imágenes
+        $ruta = "../Libraries/IMG/";
         
-        if ($result_insert) {
-            // Redireccionar al usuario a la misma página después de procesar el formulario
-            header("Location: ../Assets/admin.php");
-            exit();
+        // Obtener el nombre y la ubicación temporal de la imagen
+        $foto = $_FILES['foto_categoria']['name'];
+        $foto_temp = $_FILES['foto_categoria']['tmp_name'];
+
+        // Mover la imagen al directorio de destino
+        if (move_uploaded_file($foto_temp, $ruta . $foto)) {
+            // Consulta preparada para insertar la categoría en la base de datos
+            $sql_insert = "INSERT INTO categoria (nombre, foto_categoria) VALUES (?, ?)";
+            
+            // Preparar la consulta
+            $stmt = mysqli_prepare($conexion, $sql_insert);
+            if ($stmt) {
+                // Vincular los parámetros
+                mysqli_stmt_bind_param($stmt, "ss", $categoria, $foto);
+                
+                // Ejecutar la consulta
+                if (mysqli_stmt_execute($stmt)) {
+                    // Redireccionar al usuario después de procesar el formulario
+                    header("Location: ../Assets/admin.php");
+                    exit();
+                } else {
+                    echo "Error al agregar categoría: " . mysqli_error($conexion);
+                }
+            } else {
+                echo "Error en la consulta: " . mysqli_error($conexion);
+            }
         } else {
-            echo "Error al agregar usuario: " . mysqli_error($conexion);
+            echo "Error al mover el archivo.";
         }
     } else {
-        echo "Por favor, complete todos los campos del formulario";
+        echo "Por favor, seleccione una imagen.";
     }
 }
 ?>
@@ -25,14 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <link rel="stylesheet" href="../Libraries/CSS/registros.css">
 
 <div class="contenedor-sticky">
-    <form method="post" class="box" >
-        <h1 class="Inicio">Ingresa la categoria</h1>
-         <label for="">Nombre de la categoria:</label>
+    <form method="post" class="box" enctype="multipart/form-data">
+        <h1 class="Inicio">Ingresa la categoría</h1>
+        <label for="nombre">Nombre de la categoría:</label>
         <input type="text" name="nombre" class="Ingreso">
-         <label for="">Ingres una foto de producto</label>
-         <input type="text" name="">
+        <label for="foto_categoria">Ingresar una foto de la categoría:</label>
+        <input type="file" name="foto_categoria">
         <input type="submit" value="Agregar" id="registrar">
     </form>
 </div>
-
-

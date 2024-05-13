@@ -5,9 +5,9 @@
 .flex-container {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-start; /* Alinear los elementos al inicio */
-  overflow-x: auto; /* Permitir desplazamiento horizontal */
-  margin-bottom: 20px; /* Agregar un espacio entre las filas */
+  justify-content: flex-start;
+  overflow-x: auto;
+  margin-bottom: 20px;
 }
 
 .circle {
@@ -15,10 +15,22 @@
   height: 100px;
   border-radius: 50%;
   background-color: #F57C00;
-  margin-right: 20px; /* Agregar un espacio entre los círculos */
+  margin-right: 20px;
   overflow: hidden;
   position: relative;
-  transition: all 0.3s ease-in-out; /* Animación de transición */
+  transition: all 0.3s ease-in-out;
+  display: flex; /* Agregar */
+  justify-content: center; /* Agregar */
+  align-items: center; /* Agregar */
+}
+
+.circle:hover {
+  transform: scale(1.2);
+}
+
+.circle img {
+  max-width: 100%; /* Cambiado */
+  max-height: 100%; /* Cambiado */
 }
 
 .circle p {
@@ -30,19 +42,15 @@
   margin: 0;
   font-size: 14px;
   color: #fff;
-  transition: all 0.3s ease-in-out; /* Animación de transición */
-  opacity: 0; /* Inicialmente oculto */
-}
-
-.circle:hover {
-  transform: scale(1.2); /* Hace el círculo más grande al pasar el cursor sobre él */
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
 }
 
 .circle:hover p {
-  opacity: 1; /* Muestra el nombre al pasar el cursor sobre el círculo */
+  opacity: 1;
 }
 
-.containerCategorias{
+.containerCategorias {
   background-color: transparent;
   width: auto;
   height: auto;
@@ -53,7 +61,7 @@
   padding: auto;
 }
 
-.boxProduct{
+.boxProduct {
   width: 180px;
   height: 180px;
   border-color: black;
@@ -64,24 +72,22 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-  padding: 5px 5px;
-
+  padding: 5px;
 }
 
-.imgPr{
+.imgPr {
   width: auto;
   height: 50%;
   border-radius: 5px;
-
 }
 
-.namePr{
+.namePr {
   color: white;
   font-size: small;
   margin: auto;
 }
 
-.pricePr{
+.pricePr {
   color: #ffd900;
   font-size: large;
   margin: auto;

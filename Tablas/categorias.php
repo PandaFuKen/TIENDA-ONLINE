@@ -12,6 +12,7 @@ $result = mysqli_query($conexion,$sql);
         <thead>
             <tr>
                 <th>ID</th>
+                <th>FOTO</th>
                 <th>Nombre</th>
                 <th>Acciones</th>
             </tr>
@@ -20,6 +21,7 @@ $result = mysqli_query($conexion,$sql);
             <?php while($fila = mysqli_fetch_array($result)) {?> 
                 <tr>
                 <td><?php echo $fila['id_categoria']?></td>
+                <td><img src="../Libraries/IMG/<?php echo $fila['foto_categoria']; ?>" alt="" class="editar"></td>
                 <td><?php echo $fila['nombre']?></td>
                 <td>
                     <a href="../Controllers/elimnarcategoria.php?id_categoria=<?php echo $fila ['id_categoria']?>"><img src="../Libraries/IMG/eliminar.png" alt="" class="eliminar"></a>
