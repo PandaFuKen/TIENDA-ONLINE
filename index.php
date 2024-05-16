@@ -16,4 +16,6 @@
 
 <?php include ("./Views/vistacategoria.php");?>
 
+<h1>Hola</h1>
+
 </html>
