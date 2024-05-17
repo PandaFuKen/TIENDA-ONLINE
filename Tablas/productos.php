@@ -2,7 +2,7 @@
 
 <?php 
 include("../php/conexion.php");
-$sql = "SELECT*FROM pr";
+$sql = "SELECT*FROM producto";
 $result = mysqli_query($conexion,$sql);
 
 ?>

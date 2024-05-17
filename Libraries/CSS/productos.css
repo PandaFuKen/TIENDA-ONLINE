@@ -7,6 +7,7 @@
 .card{
     box-shadow: 0 ;
     max-width: 300px;
+    max-height: 500px;
     text-align: center;
     font-family: arial;
     margin-top: 10px;
@@ -15,6 +16,7 @@
     margin-right: -55px;
     background-color: #0D47A1; 
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .price{
@@ -32,6 +34,7 @@
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+
 }
 
 .card button:hover{
@@ -39,6 +42,5 @@
 }
 
 img{
-    max-width: 800px;
     width: 40%;
 }

@@ -16,6 +16,8 @@
 
 <?php include ("./Views/vistacategoria.php");?>
 
+
+<?php include ("../TIENDA-ONLINE/Views/shows.php");?>
 <h1>Hola</h1>
 
 </html>

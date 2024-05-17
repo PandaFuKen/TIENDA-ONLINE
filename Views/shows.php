@@ -2,7 +2,7 @@
 <?php 
 include("../PHP/conexion.php");
 
-$query = "SELECT * FROM pr";
+$query = "SELECT * FROM producto";
 $resultado = $conexion->query($query);
 ?>
 <div class="content-flex">
@@ -13,7 +13,7 @@ $resultado = $conexion->query($query);
       <div class="card">
         <img src="../Libraries/IMG/<?php echo $fila['foto_producto'];?>" alt="<?php echo $fila['nombre_producto']; ?>">
         <h1><?php echo $fila['nombre_producto']; ?></h1>
-        <p class="price">$<?php echo $fila['precio']; ?></p>
+        <h2  class="price"> <?php echo $fila['precio']; ?></h2>
         <p><?php echo $fila['descripcion']; ?></p>
         <p>Stock : <?php echo $fila['stock']?></p>
         <p><button>Add to Cart</button></p>
@@ -25,3 +25,4 @@ $resultado = $conexion->query($query);
   }
   ?>
 </div>
+
