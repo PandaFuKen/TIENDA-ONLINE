@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<?php include ("./Views/navbar.php");?>
+<?php include ("./Views/navbar.php");
+session_destroy();
+?>
 
 <h1>Bienvenido a chedraui</h1>
 
@@ -18,6 +20,5 @@
 
 
 <?php include ("../TIENDA-ONLINE/Views/shows.php");?>
-<h1>Hola</h1>
 
 </html>

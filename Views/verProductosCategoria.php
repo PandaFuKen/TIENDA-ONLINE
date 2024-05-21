@@ -1,8 +1,15 @@
 <link rel="stylesheet" type="text/css" href="./Libraries/CSS/productos.css">
 <?php 
-include("./PHP/conexion.php");
+include("../PHP/conexion.php");
 
-$query = "SELECT * FROM producto";
+$idProducto = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+if ($idProducto > 0) {
+
+
+// Consultar la base de datos para obtener los detalles del producto con el ID proporcionado
+$query = $conexion->prepare("SELECT * FROM producto WHERE id_producto = ?");
+$query->bind_param("i", $idCateoria);
 $resultado = $conexion->query($query);
 ?>
 <div class="content-flex">
@@ -22,7 +29,9 @@ $resultado = $conexion->query($query);
     }
   } else {
       echo "No se encontraron productos.";
-  }
+  } } else {
+    echo "ID de producto no válido.";
+}
   ?>
 </div>
 

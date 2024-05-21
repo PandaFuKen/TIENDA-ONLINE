@@ -18,7 +18,7 @@ $result = mysqli_query($conexion,$sql);
             </tr>
         </thead>
         <tbody>
-            <?php while($fila = mysqli_fetch_array($result)) {?> 
+            <?php while($fila = mysqli_fetch_array($result)) {?>
                 <tr>
                 <td><?php echo $fila['id_categoria']?></td>
                 <td><img src="../Libraries/IMG/<?php echo $fila['foto_categoria']; ?>" alt="" class="editar"></td>

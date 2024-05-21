@@ -1,5 +1,6 @@
 .contenedor-categorias {
   margin-top: 20px;
+  width: auto;
 }
 
 .flex-container {
@@ -10,9 +11,10 @@
   margin-bottom: 20px;
 }
 
-.circle {
-  width: 100px;
-  height: 100px;
+.circle{
+  margin: 50px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: #F57C00;
   margin-right: 20px;
@@ -22,15 +24,23 @@
   display: flex; /* Agregar */
   justify-content: center; /* Agregar */
   align-items: center; /* Agregar */
+  z-index: 100;
 }
 
 .circle:hover {
-  transform: scale(1.2);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 
 .circle img {
-  max-width: 100%; /* Cambiado */
-  max-height: 100%; /* Cambiado */
+  width: auto; /* Cambiado */
+  height: 105%; /* Cambiado */
 }
 
 .circle p {
@@ -40,14 +50,26 @@
   left: 0;
   width: 100%;
   margin: 0;
-  font-size: 14px;
-  color: #fff;
+  font-size: 18px;
+  color: #ffffff;
   transition: all 0.3s ease-in-out;
   opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 
 .circle:hover p {
+  border-radius: 20px;
+  background: rgba(73, 73, 73, 0.8);
   opacity: 1;
+  width: 100px;
+  margin: 25px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .containerCategorias {
@@ -88,7 +110,7 @@
 }
 
 .pricePr {
-  color: #ffd900;
+  color: #F57C00;
   font-size: large;
   margin: auto;
 }

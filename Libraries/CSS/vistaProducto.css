@@ -1,0 +1,250 @@
+#datVerProd{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spacer {
+    flex: 1;
+}
+
+    .verProdName{
+    margin: 20px 0px;
+    color: rgb(0, 0, 0);
+    height: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: x-large;
+    font-style: normal;
+    }
+
+    .verProdDescription{
+        position: relative;
+        color:rgb(0, 0, 0);
+        font-size: large;
+        font-family: "Mulish", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+        padding: 5px 10px;
+    }
+
+    .verProdPrice{
+    margin: 0px 0px;
+    color: blue;
+    font-size: xx-large;
+    }
+
+    #containerCompra{
+        background: rgba(112, 112, 112, 0.3);
+        display: flex;
+        flex-direction: row;
+        padding: 5px 10px;
+        border-radius: 5px;
+        height: 100px;
+        
+    justify-content: center;
+    align-items: center;   
+    }
+
+
+
+    #btnCompra{
+        font-size: large;
+        font-style: bold;
+        width: 150px;
+        height: 50px;
+        background-color: #F57C00;
+        border: 0ch;
+        border-radius: 10px;
+        position: relative;
+        float: right;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
+
+  .slide {
+    position: relative;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+    margin-top: 1px;
+    width: 420px;
+    height: 280px;
+    background-color:rgb(255, 255, 255);
+}
+.slide-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc( 300px + 3em);
+}
+.slide-open:checked + .slide-item {
+    position: static;
+    opacity: 100;
+}
+.slide-item {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+.slide-item img {
+    display: block;
+    height: 280px;
+    width: 450px;
+    max-width: 500px;
+}
+.slide-control {
+    background: rgba(0, 0, 0, 0.28);
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 280px;
+    line-height: 35px;
+    position: absolute;
+    transform: translate(0, -100%);
+    text-align: center;
+    width: 50px;
+    z-index: 10;
+    -webkit-transform: translate(0, -100%);
+    -moz-transform: translate(0, -100%);
+    -ms-transform: translate(0, -100%);
+    -o-transform: translate(0, -100%);
+}
+.slide-control.prev {
+    left: 0%;
+}
+.slide-control.next {
+    right: 0%;
+}
+
+#slide-1:checked ~ .control-1,
+#slide-2:checked ~ .control-2,
+#slide-3:checked ~ .control-3 {
+    display: block;
+}
+
+/*footer*/
+
+footer{
+    display: flex;
+    flex-direction: row;
+}
+
+#cantidad{
+    width: 200px;
+    height: auto;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.64);
+    display: flex;
+    float: left;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#nameCant{
+    padding: 5px 10px;
+    color: white;
+    font-size: small;
+    margin: auto;
+
+}
+
+#cantUnit{
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.btnpr{
+    background-color: rgba(112, 112, 112, 0.3);
+    color: white;
+    width: 50px;
+    height: 30px;
+    border-radius: 50px;
+    border: 0ch;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#btncnt{
+    justify-content: center;
+    align-items: center;
+}
+
+#imgComplemento{
+    width: 120px;
+    height: 110px;
+    margin-top: 10px 15px;
+    background: rgba(255, 255, 255);
+    position: relative;
+    display: flex;
+    align-items: stretchs;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+@media screen and (max-width: 420px) {
+.slide{
+width: auto;
+height: 280px;
+}
+
+.slide-item img{
+width: auto;
+height: 280px;
+}
+}
+
+@media screen and (max-width: 580px) {
+
+.verProdName{
+    margin: 20px 0px;
+    color: white;
+    width: 300px;
+    height: 30px;
+    font-size: x-large;
+    }
+
+    .verProdPrice{
+    margin: 10px 0px;
+    color: #F57C00;
+    font-size: xx-large;
+    }
+}
+
+@media screen and (min-width: 580px) {
+
+    #btnCompra{
+        width: 300px;
+        height: 50px;
+    }
+
+    .container1{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #datVerProd{
+        position: relative;
+        display: flex;
+        left: 10px;
+        margin-top: 1px;
+    }
+
+    .verProdName{
+        margin: 20px 0px;
+        color: white;
+        width: 300px;
+        height: 30px;
+        font-size: x-large;
+        }
+}

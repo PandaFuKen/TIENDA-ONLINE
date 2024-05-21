@@ -2,7 +2,7 @@
 session_start();
 session_destroy();
 include("../Controllers/validacion.php");
-include("../Views/navbar.php");
+include_once("../Views/navbar.php");
 ?>
 
 <link rel="stylesheet" href="../Libraries/login.css">
