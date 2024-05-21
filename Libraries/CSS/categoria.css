@@ -9,22 +9,43 @@
   justify-content: flex-start;
   overflow-x: auto;
   margin-bottom: 20px;
+  background-color: #aaaaaa;
+}
+
+.flex-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+}
+.flex-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.flex-container:hover::-webkit-scrollbar-thumb {
+  background-color: #2f6ead;
 }
 
 .circle{
   margin: 50px;
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   border-radius: 50%;
   background-color: #F57C00;
   margin-right: 20px;
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease-in-out;
-  display: flex; /* Agregar */
-  justify-content: center; /* Agregar */
-  align-items: center; /* Agregar */
-  z-index: 100;
+  display: flex;
+  /*Agregar*/justify-content: center;
+  /*Agregar*/align-items: center;
+  /*Agregar*/z-index: 100;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 
 .circle:hover {
@@ -36,6 +57,7 @@
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
+  -webkit-scrollbar {display: none;}
 }
 
 .circle img {
@@ -65,7 +87,7 @@
   background: rgba(73, 73, 73, 0.8);
   opacity: 1;
   width: 100px;
-  margin: 25px;
+  margin: 35px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
@@ -81,6 +103,7 @@
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   margin-top: 50px;
   padding: auto;
+  -webkit-scrollbar {display: none;}
 }
 
 .boxProduct {

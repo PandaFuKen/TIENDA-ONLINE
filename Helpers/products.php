@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             move_uploaded_file($Foto_temp, $ruta.$Foto);
 
             // Validar datos del formulario
-            if($nombre != "" && $precio != "" && $descripcion != "" && $stock != "" && $categoria_id != "" && $Foto != "" && $id_usuario !=) {
+            if($nombre != "" && $precio != "" && $descripcion != "" && $stock != "" && $categoria_id != "" && $Foto != "" && $id_usuario) {
                 // Insertar el producto en la base de datos
                 $sql_insert = "INSERT INTO producto (nombre_producto, descripcion, precio, stock, foto_producto, id_categoria, id_usuario) 
                                 VALUES ('$nombre', '$descripcion', '$precio', '$stock', '$Foto', '$categoria_id', '$id_usuario')";

@@ -14,7 +14,7 @@ $resultado = $conexion->query($query);
       while ($fila = $resultado->fetch_assoc()) {
     ?>
         
-        <a href="./Views/verCategoria.php?nombre=<?php echo $fila['nombre']; ?>">
+        <a href="./Views/verProductosCategoria.php?id=<?php echo $fila['id_categoria']; ?>">
           <div class="circle">
             <img src="./Libraries/IMG/<?php echo $fila['foto_categoria'];?>" alt="">
             <p><?php echo $fila['nombre']; ?></p>

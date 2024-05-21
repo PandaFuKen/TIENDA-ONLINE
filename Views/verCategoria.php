@@ -52,7 +52,7 @@ $producto = $result->fetch_assoc();
    <?php
 
    } else {
-        echo "Producto no encontrado. "$producto['id_producto'];
+        echo "Producto no encontrado".$producto['id_producto'];
     }
 } else {
     echo "ID de producto no válido.";
