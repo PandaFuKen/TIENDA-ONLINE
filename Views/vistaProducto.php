@@ -19,8 +19,8 @@
     ?>
 
     <body>
-
     <?php
+     include ("../Views/navbar.php");
 // Conexión a la base de datos y otras configuraciones necesarias
  include("../PHP/conexion.php");
 
@@ -77,7 +77,7 @@ $producto = $result->fetch_assoc();
         <script src="" async defer></script>
     </body>
 
-    <form action="./carta/aggProdCarta.php" method="get">
+    <form action="../Controllers/aggProdCarrito.php" method="get">
     <div id="containerCompra">
         <div id="cantidad">
             <h1 id="nameCant">Cantidad: (<?php echo $producto['stock']?> disponibles)</h1>

@@ -36,11 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="">Ingresa tus apelidos</label>
         <input type="text" name="apellidos" placeholder="Apellidos" class="Ingreso">
         <label for="">Ingresa tu correo</label>
-        <input type="text" name="correo" placeholder="Correo" class="Ingreso">
+        <input type="email" name="correo" placeholder="Correo" class="Ingreso">
          <label for="">Ingresa un nombre usuario</label>
         <input type="text" name="username" placeholder="username" class="Ingreso">
         <label for="">ingresa una contraseña</label>
-        <input type="text" name="password" placeholder="password" class="Ingreso">    
+        <input type="password" name="password" placeholder="password" class="Ingreso">
         <input type="submit" value="Agregar" id="registrar">
     </form>
 </div>

@@ -9,7 +9,7 @@
 <body>
 
 <?php include ("./Views/navbar.php");
-session_destroy();
+//session_destroy();
 ?>
 
 <h1>Bienvenido a chedraui</h1>
@@ -49,6 +49,7 @@ session_destroy();
 <style type="text/css">
 
 .slide {
+    border-radius:5px;
     margin:auto;
     position: relative;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
@@ -74,6 +75,7 @@ session_destroy();
     transition: opacity 0.6s ease-out;
 }
 .slide-item img {
+    border-radius:5px;
     display: block;
     width: 470px;
     height: 300px;

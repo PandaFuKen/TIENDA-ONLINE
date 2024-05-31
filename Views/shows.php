@@ -5,18 +5,19 @@ include("./PHP/conexion.php");
 $query = "SELECT * FROM producto";
 $resultado = $conexion->query($query);
 ?>
+<h2>Promociones</h2>
 <div class="content-flex">
   <?php 
   if ($resultado && $resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
   ?>
-      <a href="./Views/vistaProducto.php?id=<?php echo $fila['id_producto']; ?>">
-      <div class="card">
+    <a href="./Views/vistaProducto.php?id=<?php echo $fila['id_producto']; ?>">
+      <ul class="card">
         <img class="imgPr" src="./Libraries/IMG/<?php echo $fila['foto_producto'];?>" alt="<?php echo $fila['nombre_producto']; ?>">
         <h1><?php echo $fila['nombre_producto']; ?></h1>
-        <h2  class="price"> <?php echo $fila['precio']; ?></h2>
-        <p><button>Agregar al carrito</button></p>
-      </div>
+        <h2  class="price">$<?php echo $fila['precio']; ?></h2>
+        <p><button value="<?php echo $fila['id_producto']; ?>" >Agregar al carrito</button></p>
+      </ul>
     </a>
   <?php
     }

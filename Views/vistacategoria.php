@@ -7,7 +7,7 @@ $resultado = $conexion->query($query);
 ?>
 
 <div class="contenedor-categorias">
-  <h2>Todas las categorías:</h2>
+  <h2>Todas las categorías</h2>
   <div class="flex-container">
     <?php 
     if ($resultado && $resultado->num_rows > 0) {
