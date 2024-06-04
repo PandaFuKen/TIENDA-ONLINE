@@ -30,7 +30,7 @@ $result = mysqli_query($conexion,$sql);
             <td><?php echo $fila['stock']?></td>
             <td>
                 <a href="../Controllers/editarproducto.php?id_producto=<?php echo $fila ['id_producto']?>"><img src="../Libraries/IMG/editar.png" alt="" class="editar"></a>
-                <a href="../Controllers/elimnarcategoria.php?id_categoria=<?php echo $fila ['id_categoria']?>"><img src="../Libraries/IMG/eliminar.png" alt="" class="eliminar"></a>
+                <a href="../Controllers/eliminarproducto.php?id_producto=<?php echo $fila ['id_producto']?>"><img src="../Libraries/IMG/eliminar.png" alt="" class="eliminar"></a>
             </td>
            </tr>
  

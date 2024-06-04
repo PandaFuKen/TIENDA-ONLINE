@@ -12,24 +12,24 @@
 //session_destroy();
 ?>
 
-<h1>Bienvenido a chedraui</h1>
+<h1 class="bienvenido">Bienvenido a chedraui</h1>
 
 <div class="slide">
             <div class="slide-inner">
                 <input class="slide-open" type="radio" id="slide-1"
                       name="slide" aria-hidden="true" hidden="" checked="checked">
                 <div class="slide-item">
-                <img src="./img\Categorias\Perecederos.jpg" alt="">
+                <img src="./img\ofertas\oferta1.png" alt="">
                 </div>
                 <input class="slide-open" type="radio" id="slide-2"
                       name="slide" aria-hidden="true" hidden="">
                 <div class="slide-item">
-                <img src="./img\Categorias\Perecederos.jpg" alt="">
+                <img src="./img\ofertas\oferta2.png" alt="">
                 </div>
                 <input class="slide-open" type="radio" id="slide-3"
                       name="slide" aria-hidden="true" hidden="">
                 <div class="slide-item">
-                <img src="./img\Categorias\Perecederos.jpg" alt="">
+                <img src="./img\ofertas\oferta3.png" alt="">
                 </div>
                 <label for="slide-3" class="slide-control prev control-1">‹</label>
                 <label for="slide-2" class="slide-control next control-1">›</label>
@@ -45,7 +45,6 @@
 
 <?php include ("../TIENDA-ONLINE/Views/shows.php");?>
 
-
 <style type="text/css">
 
 .slide {
@@ -54,7 +53,7 @@
     position: relative;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
     margin-top: 1px;
-    width: 470px;
+    width: 500px;
     height: 300px;
     background-color:rgb(255, 255, 255);
 }
@@ -77,7 +76,7 @@
 .slide-item img {
     border-radius:5px;
     display: block;
-    width: 470px;
+    width: 650px;
     height: 300px;
     max-width: 500px;
 }

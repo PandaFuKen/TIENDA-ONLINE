@@ -16,9 +16,11 @@ $resultado = $conexion->query($query);
         <img class="imgPr" src="./Libraries/IMG/<?php echo $fila['foto_producto'];?>" alt="<?php echo $fila['nombre_producto']; ?>">
         <h1><?php echo $fila['nombre_producto']; ?></h1>
         <h2  class="price">$<?php echo $fila['precio']; ?></h2>
-        <p><button value="<?php echo $fila['id_producto']; ?>" >Agregar al carrito</button></p>
+        </a>
+        <form action="./Controllers/aggProdCarrito.php">
+        <p><button type="submit" value="<?php echo $fila['id_producto']; ?>" >Agregar al carrito</button></p>
+        </form>
       </ul>
-    </a>
   <?php
     }
   } else {

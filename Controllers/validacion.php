@@ -1,8 +1,7 @@
 <?php
 include("../PHP/conexion.php");
-session_start(); // Inicia la sesión al principio del script
 
-if(isset($_POST["login"])){ 
+if(isset($_POST["login"])){
     if(strlen($_POST["usuarios"]) >= 1 && strlen($_POST['pass']) >= 1){ 
         $NombreUsuario = $_POST["usuarios"];
         $Contra = $_POST["pass"];

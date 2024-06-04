@@ -95,7 +95,7 @@ $producto = $result->fetch_assoc();
         <input type="hidden" id="cantidadHidden" name="cantidad" value="1">
 
         <!-- Botón de submit -->
-        <button type="submit" name="id" class="btn" id="btnCompra" value="<?php echo $producto['id_producto']; ?>">
+        <button type="submit" name="id_producto" class="btn" id="btnCompra" value="<?php echo $producto['id_producto']; ?>">
             Agregar al carrito
         </button>
     </div>

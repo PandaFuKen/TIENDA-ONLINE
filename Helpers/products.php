@@ -1,7 +1,7 @@
 <?php
 
 // Al principio del script, inicia la sesión
-//session_start();
+session_start();
 
 require_once "../PHP/conexion.php";
 include("../Controllers/validacion.php");

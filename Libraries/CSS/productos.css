@@ -2,16 +2,25 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
+.bienvenido{
+    text-align: center;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+}
+
 h1{
-    font-size: 20px;
+    text-align: center;
+    font-size: 25px;
     color: rgb(255, 255, 255);
 }
 
 .price{
+    text-align: center;
     font-size: 18px;
     color: rgb(0, 0, 0);
 }
