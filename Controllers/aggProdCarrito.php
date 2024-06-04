@@ -25,7 +25,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
 
                 <?php
                 echo '<script type="text/javascript">
-                alert("Producto agregado a la Carta");
+                alert("Producto agregado al carrito");
                 window.location.href="../Views/vistaProducto.php?id=" + idProducto;
                 </script>';
 

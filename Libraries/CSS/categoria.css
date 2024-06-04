@@ -22,6 +22,7 @@
 }
 .flex-container:hover::-webkit-scrollbar-thumb {
   background-color: #2f6ead;
+  height: 20px;
 }
 
 .circle{
