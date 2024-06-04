@@ -19,6 +19,7 @@
     ?>
 
     <body>
+    <link rel="stylesheet" href="../Libraries/CSS/navbar.css">
     <?php
      include ("../Views/navbar.php");
 // Conexión a la base de datos y otras configuraciones necesarias

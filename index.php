@@ -12,7 +12,7 @@
 //session_destroy();
 ?>
 
-<h1 class="bienvenido">Bienvenido a chedraui</h1>
+<h1 class="bienvenido">BIENVENIDO A CHEDRAUI</h1>
 
 <div class="slide">
             <div class="slide-inner">

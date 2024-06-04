@@ -13,10 +13,10 @@ body{
 }
 
 .contenedor-nav{
-    
     overflow:hidden ;
     background:#F57C00;
     width: 100%;
+    height: 100px;
 }
 .contenedor-nav a {
     float: right;
@@ -31,7 +31,6 @@ body{
 .contenedor-nav a:hover{
     background-color:  #0D47A1;
     color: black;
-    height: 100%;
 }
 
 .ref{

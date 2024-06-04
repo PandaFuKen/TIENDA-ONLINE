@@ -1,15 +1,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./Libraries/CSS/navbar.css">
+<?php include('config.php'); ?>
 
 <script src="../Config/login.js"></script>
 
 
 <nav class="contenedor-nav">
 
-  <img class="logoIcono" src="./img/CHEDRAUI_Logo_.png">
-  <h1 class="name">CHEDRAUI</h1>
+
+    <img class="logoIcono" src="<?php echo BASE_URL; ?>img/CHEDRAUI_Logo_.png" alt="Logotipo de la Empresa">
+    <h1 class="name">CHEDRAUI</h1>
 
 <?php
+
 /*Agrega el nombre de usuario y la foto de perfil */
     session_start();
     if(isset($_SESSION['usuario'])) {
@@ -25,7 +28,7 @@
         <?php } ?>
 
         <a href="./Assets/login.php" class="ref">Ver Carrito</a>
-        
+
       </nav>
 <style type="text/css">
 

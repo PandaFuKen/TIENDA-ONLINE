@@ -1,5 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../Libraries/CSS/productos.css">
-<?php 
+<link rel="stylesheet" href="../Libraries/CSS/navbar.css">
+    <?php
+     include ("../Views/navbar.php");
 include("../PHP/conexion.php");
 
 // Obtener el ID de la categoría desde los parámetros GET
