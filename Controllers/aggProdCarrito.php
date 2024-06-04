@@ -2,46 +2,39 @@
 include('../PHP/conexion.php');
 session_start();
 
-//validamos si el usuario ha iniciado sesión
+// Verificar si el usuario ha iniciado sesión
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     try {
-        if (isset($_GET['id_producto']) && !empty($_GET['id_producto'])) {
-            //obtenemos el id del usuario
-            $idUsuario = $_SESSION['idUsuario'];
-            // Obtener los datos del producto (id del producto, )
-            $idProducto = $_GET['id_producto'];
-            $cantidad = intval($_GET["cantidad"]);
+        if (isset($_GET['id_producto'], $_GET['cantidad']) && !empty($_GET['id_producto']) && !empty($_GET['cantidad'])) {
 
-            $query = "INSERT INTO detallescarrito (pedido_id, producto_id, cantidad, usuario_id) VALUES (?, ?, ?, ?)";
+    $idUsuario = $_SESSION['id_usuario'];
+    // Obtener los datos del producto (id del producto, )
+    $id_pedido = 1;
+    $idProducto = $_GET['id_producto'];
+    $cantidad = intval($_GET["cantidad"]);
 
-            if ($statement = $conexion->prepare($query)) {
-                $statement->bind_param( $pedido_id, $idProducto, $cantidad, $idUsuario);
-                $statement->execute();
+    $query = "INSERT INTO detallescarrito (pedido_id, producto_id, cantidad, id_usuario) VALUES (:pedido_id, :producto_id, :cantidad, :id_usuario)";
 
-                ?>
-                <script type="text/javascript">
-                    var idProducto = "<?php echo $idProducto; ?>";
-                </script>
+    $statement = $conexion->prepare($query);
+    //$statement->bindParam('idUsuario', $idUsuario);
+    $statement->bindParam(':pedido_id', $id_pedido);
+    $statement->bindParam(':producto_id', $idProducto);
+    $statement->bindParam(':cantidad', $cantidad);
+    $statement->bindParam(':id_usuario', $idUsuario);
+    $statement->execute();
 
-                <?php
-                echo '<script type="text/javascript">
-                alert("Producto agregado al carrito");
-                window.location.href="../Views/vistaProducto.php?id=" + idProducto;
-                </script>';
-
-                $statement->close();
-            } else {
-                echo "Error al preparar la consulta: " . $connection->error;
-            }
-
+            echo '<script type="text/javascript">
+            alert("Producto agregado correctamente al carrito");
+            window.location.href="../Views/vistaProducto.php?id=' . $idProducto . '";
+            </script>';
         } else {
-            echo "Producto no encontrado";
+            throw new Exception("Datos del formulario incompletos.");
         }
-
     } catch (Exception $e) {
-        echo "Error al agregar el producto al pedido: " . $e->getMessage();
+        // Revertir la transacción en caso de error
+        $conexion->rollback();
+        echo "Error al agregar el producto al carrito: " . $e->getMessage();
     }
-
 } else {
     // Si el usuario no ha iniciado sesión, redirigirlo a la página de inicio de sesión
     header('Location: ../Assets/login.php');
