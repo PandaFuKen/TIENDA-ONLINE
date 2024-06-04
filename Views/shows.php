@@ -17,8 +17,9 @@ $resultado = $conexion->query($query);
         <h1><?php echo $fila['nombre_producto']; ?></h1>
         <h2  class="price">$<?php echo $fila['precio']; ?></h2>
         </a>
-        <form action="./Controllers/aggProdCarrito.php">
-        <p><button type="submit" value="<?php echo $fila['id_producto']; ?>" >Agregar al carrito</button></p>
+        <form action="./Controllers/aggProdCarrito.php" method="get">
+        <input type="hidden" id="cantidadHidden" name="cantidad" value="1">
+        <p><button type="submit" name="id_producto" class="btn" id="btnCompra" value="<?php echo $fila['id_producto']; ?>">Agregar al carrito</button></p>
         </form>
       </ul>
   <?php
