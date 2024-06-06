@@ -1,7 +1,9 @@
 <?php
 session_start();
 include("../Controllers/validacion.php");
+
 ?>
+
 
 <link rel="stylesheet" href="../Libraries/login.css">
 
@@ -12,4 +14,8 @@ include("../Controllers/validacion.php");
     <label for="" class="Ingreso">Ingresa tu contraseña</label>
     <input type="password" name="pass" placeholder="">
     <input type="submit" name="login" value="Login">
+
+    <button class="ingreso"><a href="../Assets/register.php">Registrarse</a></button>
+
+   
 </form>

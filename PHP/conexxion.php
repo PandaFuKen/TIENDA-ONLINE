@@ -1,9 +1,9 @@
 <?php
 if (!defined('USER')) {
-define('USER', 'admin');
+define('USER', 'root');
 }
 if (!defined('PASSWORD')) {
-define('PASSWORD', '9683');
+define('PASSWORD', '');
 }
 if (!defined('HOST')) {
 define('HOST', 'localhost');

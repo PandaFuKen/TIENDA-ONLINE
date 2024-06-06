@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if ($result_insert) {
             // Redireccionar al usuario a la misma página después de procesar el formulario
-            header("Location: {$_SERVER['REQUEST_URI']}");
+            header("Location: ../Assets/login.php");
             exit();
         } else {
             echo "Error al agregar usuario: " . mysqli_error($conexion);

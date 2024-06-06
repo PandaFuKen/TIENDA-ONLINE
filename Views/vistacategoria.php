@@ -19,6 +19,7 @@ $resultado = $conexion->query($query);
             <img src="./Libraries/IMG/<?php echo $fila['foto_categoria'];?>" alt="">
             <p><?php echo $fila['nombre']; ?></p>
           </div></a>
+          
         
     <?php 
       }
