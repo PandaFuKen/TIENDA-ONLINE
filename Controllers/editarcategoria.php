@@ -9,8 +9,6 @@ $result=mysqli_query($conexion,$sql);
 while($fila=mysqli_fetch_assoc($result)){
 
 ?>
-
-
 <div class="contenedor-sticky">
     <form method="post" class="box">
         <h1 class="Inicio">PERFIL</h1>

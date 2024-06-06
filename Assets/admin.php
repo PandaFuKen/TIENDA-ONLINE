@@ -11,6 +11,8 @@ if (isset($_SESSION['rol']) == '1') {
   <button class="tablinks" onclick="openCity(event, 'Cliente')">Cliente</button>
   <button class="tablinks" onclick="openCity(event, 'Categoria')">Categoria</button>
   <button class="tablinks" onclick="openCity(event, 'Producto')">Producto</button>
+  
+  <a href="../index.php"><button class="tablinks">HOME</button></a>
   <a href="../Assets/exit.php"><button class="tablinks">Cerrar sesion</button></a>
 
 </div>
@@ -37,7 +39,6 @@ if (isset($_SESSION['rol']) == '1') {
   
   
 </div>
-
 
         
 <script src="../Config/admin.js"></script>

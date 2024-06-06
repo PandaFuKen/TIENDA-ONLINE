@@ -26,6 +26,7 @@ if(isset($_POST["login"])){
             $_SESSION['usuario'] = $detalles['username'];
             $_SESSION['id_usuario'] = $detalles['id_usuario'];
             $_SESSION['rol'] = $detalles['rol'];
+            $_SESSION['loggedin'] = true;
 
             if($_SESSION['rol'] == '1'){
 

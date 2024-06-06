@@ -14,20 +14,21 @@
 <?php
 
 /*Agrega el nombre de usuario y la foto de perfil */
-    session_start();
-    if(isset($_SESSION['usuario'])) {
+session_start();
+  if(isset($_SESSION['usuario'])) {
         $username = $_SESSION['usuario'];
 ?>
       <div id="nameUser"><?php echo $username; ?></div>
       <div id="imgUser"><img id="imgUser" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.qR0GP0edU8z3CIOxMTAnzAHaHa%26pid%3DApi&f=1&ipt=077530002660988fd9d0911f179d49e305d04c4d0b17658c45501f935c2447ee&ipo=images" alt=""></div>
-<?php } else { ?>
+      <a href="./Assets/exit.php" class="ref">Cerrar sesión</a><?php 
 
+} else { ?>
       <a href="./Assets/register.php" class="ref">Registrarse</a>
       <a href="./Assets/login.php" class="ref">Inicia Sesion</a>
+<?php } ?>
 
-        <?php } ?>
-
-        <a href="./Assets/login.php" class="ref">Ver Carrito</a>
+        <a href="./Controllers/verProdCarrito.php" class="ref">Ver Carrito</a>
+        
 
       </nav>
 <style type="text/css">

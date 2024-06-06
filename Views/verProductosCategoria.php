@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../Libraries/CSS/productos.css">
 <link rel="stylesheet" href="../Libraries/CSS/navbar.css">
+<link rel="shortcut icon" href="favicon.ico">
     <?php
      include ("../Views/navbar.php");
 include("../PHP/conexion.php");

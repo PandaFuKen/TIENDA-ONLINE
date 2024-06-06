@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -7,7 +6,8 @@
 <link rel="shortcut icon" href="../favicon.ico">
 
 <!--Estilos css-->
-<link href="carta.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../Libraries/CSS/navbar.css">
+<?php include('../Views/config.php'); ?>
 <html lang="es">
     <head>
     <meta charset="UTF-8">
@@ -17,99 +17,90 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
-    <?php include('../PHP/conexion.php'); // Ajusta la ruta según la ubicación de tu archivo
-     include_once  '../Views/navbar.php';
+    <?php 
+    include('../Views/config.php'); // Ajusta la ruta según la ubicación de tu archivo
+    include_once  '../Views/navbar.php';
     ?>
 
     <body>
-
     <center>
- <div class="containerUbicacion">
+        <div class="containerUbicacion">
+        <?php
+        include('../PHP/conexion.php');
+        
+        $idUsuario = $_SESSION['id_usuario'];
+        
+        $query = "SELECT * FROM detallescarrito WHERE id_usuario = ?";
+        $statement = $conexion->prepare($query);
+        $statement->bind_param("i", $idUsuario);
+        $statement->execute();
+        $result = $statement->get_result();
 
-<?php
+        if ($result->num_rows > 0) {
+            // El usuario tiene productos agregados, mostrar la lista de productos
+            $query = $conexion->prepare("SELECT * FROM detallescarrito WHERE id_usuario = ?");
+            $query->bind_param("i", $idUsuario);
+            $query->execute();
+            $pedidos = $query->get_result();
+            ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+            <?php
+            $total = 0; // Inicializar el total
+            $precioTotalProducto = 0;
 
-include('../login_Signup/conexion.php');
+            // Mostrar los detalles de los productos en divs separados
+            while ($pedido = $pedidos->fetch_assoc()) {
+                // Obtener el nombre y el precio del producto basado en el ID del producto almacenado en detallespedido
+                $queryProducto = $conexion->prepare("SELECT id_producto, nombre_producto, precio FROM producto WHERE id_producto = ?");
+                $queryProducto->bind_param("i", $pedido['producto_id']);
+                $queryProducto->execute();
+                $producto = $queryProducto->get_result()->fetch_assoc();
+                // Mostrar los detalles del producto
+                ?>
+                <tr>
+                    <td class="textLocation"><?php echo $producto['id_producto']; ?> </td>
+                    <td class="textLocation"><?php echo $producto['nombre_producto'] ?> (<?php echo $pedido['cantidad'];?>) </td>
+                    <td class="textLocation">$<?php echo $producto['precio']; ?> </td>
+                    <td>
+                    <a href="eliminarCarrito.php?id=<?php echo $pedido ['id']?>"><button>Eliminar</button></a>
+                </td>
+                </tr>
+                <?php
+                $precioTotalProducto += ($producto['precio'] * $pedido['cantidad']);
+            }
+            $total += $precioTotalProducto;
+            ?>
+            <td class="textLocation">Total </td>
+            <td></td>
+            <td class="textLocation">$<?php echo number_format($total, 2); ?> </td>
+            </table>
+            <a href="../Pago/pagos.php?total=<?php echo number_format($total, 2); ?>" class="btn">
+                <button type="submit" name="pagos" class="btn" id="btnLogIn" value="pagos">Pagar</button>
+            </a>
+            <?php
+        } else {
+            ?>
+            <h1 class="title">No tienes ningun producto en tu carta</h1>
+            <a href="../index.php"><input class="btn" id="btnDecrementar" type="button" value="Agregar Producto"></a>
+            <?php
+        }
+        ?>
+        </div>
+    </center>
 
-$idUsuario = $_SESSION['idUsuario'];
+    <style type="text/css">
 
-
-$query = "SELECT * FROM detallescarrito WHERE id_usuario = :usuario_id";
-$statement = $connection->prepare($query);
-$statement->bindParam(':usuario_id', $idUsuario);
-$statement->execute();
-
-if ($statement->rowCount() > 0) {
-    // El usuario tiene productos agregados, mostrar la lista de productos
-   // Consultar los productos del usuario actual desde la base de datos
-   $query = $connection->prepare("SELECT * FROM detallescarrito WHERE id_usuario = :idUsuario");
-   $query->bindParam(":idUsuario", $idUsuario, PDO::PARAM_INT);
-   $query->execute();
-   $pedidos = $query->fetchAll(PDO::FETCH_ASSOC);
-
-   ?>
-
-   <table>
-       <thead>
-           <tr>
-               <th>ID</th>
-               <th>Producto</th>
-               <th>Precio</th>
-           </tr>
-       </thead>
-   
-   <?php
-
-   $total = 0; // Inicializar el total
-   $precioTotalProducto = 0;
-
-   // Mostrar los detalles de los productos en divs separados
-   foreach ($pedidos as $pedido) {
-       // Obtener el nombre y el precio del producto basado en el ID del producto almacenado en detallespedido
-       $queryProducto = $conexion->prepare("SELECT id, nombre, precio FROM productos WHERE id = :idProducto");
-       $queryProducto->bindParam(":idProducto", $pedido['producto_id'], PDO::PARAM_INT);
-       $queryProducto->execute();
-       $producto = $queryProducto->fetch(PDO::FETCH_ASSOC);
-       // Mostrar los detalles del producto
-       ?>
-<tr>
-        <td class="textLocation"><?php echo $producto['id']; ?> </td>
-        <td class="textLocation"><?php echo $producto['nombre'] ?> (<?php echo $pedido['cantidad'];?>) </td>
-        <td class="textLocation">$<?php echo $producto['precio']; ?> </td>
-
-</tr>
-
-<?php
-    $precioTotalProducto = $precioTotalProducto + ($producto['precio'] * $pedido['cantidad']);
-
-}
-    $total += $precioTotalProducto;
-?>
-<td class="textLocation">Total </td>
-<td></td>
-<td class="textLocation">$<?php echo number_format($total, 2) ?> </td>
-</table>
-
-<a href="../Pago/pagos.php?total=<?php echo number_format($total, 2) ?>" class="btn">
-<button type="submit" name="pagos" class="btn" id="btnLogIn" value="pagos">
-            Pagar
-</button></a>
-<?php
-
-
-} else {?>
-
-    <h1 class="title">No tienes ningun producto en tu carta</h1>
-    <a href="../index.php"><input class="btn" id="btnDecrementar" type="button" value="Agregar Producto"></a>
-
-<?php }
-
-?>
-</div>
-</center>
-
-<style type="text/css">
-
-table {
+        table {
+            justify-content:center;
+            align-items:center;
             width: 100%;
             border-collapse: collapse;
             font-family: "Inter", sans-serif;
@@ -120,12 +111,10 @@ table {
             font-size: large;
             text-align: center;
         }
-
-        thead{
+        thead {
             position: sticky;
             top: 0;
         }
-
         th, td {
             padding: 8px;
             border-bottom: 1px solid #ddd;
@@ -137,17 +126,19 @@ table {
         img {
             max-width: 100px;
         }
-        .btnOp{
-            font-family: "Inter", sans-serif;
-            margin-top: 10px;
-            width: 100px;
-            height: 40px;
-            border-radius: 50px;
-            border: 1px solid #00000;
-        }
+        button{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #F57C00;
+    text-align: center;
+    cursor: pointer;
+    width: 300px;
+    font-size: 18px;
 
-</style>
-
-        <script src="" async defer></script>
+}
+    </style>
+    <script src="" async defer></script>
     </body>
 </html>
