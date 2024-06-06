@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<?php include ("./Views/navbar.php");
+<?php include_once ("./Views/navbar.php");
 //session_destroy();
 ?>
 

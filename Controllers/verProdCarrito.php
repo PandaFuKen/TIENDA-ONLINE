@@ -101,7 +101,7 @@
         table {
             justify-content:center;
             align-items:center;
-            width: 100%;
+            width: 1000px;
             border-collapse: collapse;
             font-family: "Inter", sans-serif;
             font-optical-sizing: auto;
